@@ -1,0 +1,2 @@
+#ignore pycache folder, unlikely to be of use to end users
+__pycache__

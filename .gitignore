@@ -1,2 +1,2 @@
 #ignore pycache folder, unlikely to be of use to end users
-__pycache__
+/sandwich_shop/__pycache__

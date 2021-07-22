@@ -10,7 +10,6 @@ class Customer:
         self.name = name
         self.order = order
 
-
 """Represents a single employee with a specific job title."""
 class Employee:
     """Initialize employee with provided arguments, or use defaults."""

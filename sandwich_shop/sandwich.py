@@ -1,45 +1,33 @@
-class Sandwich :
-    def __init__(self, bread='white', portion=1,*ingredients):
-        self.bread = bread
-        self.portion = portion
-        self.type = 'sandwich'
-        self.ingredients = [] # hold any ingredients (meat, mustard, etc)
-        for ingredient in ingredients:
-            # add each ingredient specified to the list of ingredients for the sandwich
-            self.ingredients.append(ingredient)
-    
-    def display_info(self):
-        """Display info related to a particular sandwich."""
-        print(f" Bread: {self.bread}\n Portion: {self.portion}\n Type: {self.type}\n Ingredients: {self.ingredients}")
+class Sandwich:
+    def __init__(self, type='sandwich', bread='white', price = 0.00, *args):
+        """
+        Initialize this sandwich with provided type, bread, fillings
+        """
+        self.type = type #type of sandwich, ie sandwich, hot-dog, taco
+        self.bread = bread #type of bread, ie wheat, rye, corn tortilla
+        self.price = price #price of sandwich
+        self.fillings = []
+        #add all specified fillings to fillings list
+        for filling in args:
+            self.fillings.append(filling)
 
-class Sub(Sandwich):
-    def __init__(self, bread='white', length=6, toasted = False, *ingredients):
-        super().__init__() # call parent class constructor for access to default/basic values for a sandwich
-        self.bread = bread
-        self.length = length
-        self.type = 'sub'
-        self.toasted = toasted
-        for ingredient in ingredients:
-            # add each ingredient provided to list of ingredients for this sub
-            self.ingredients.append(ingredient)
 
-    def display_info(self):
-        """Display info related to a particular sub."""
-        print(f" Bread: {self.bread}\n Length: {self.length}\"\n Type: {self.type}\n Toasted: {self.toasted}\n Ingredients: {self.ingredients}")
+    def set_price(self, price):
+        """Set the price of this sandwich, overwriting previous price."""
+        if(price > 0):
+            self.price = price
+        else:
+            print("Price must be greater than 0.")
 
-class Burger(Sandwich) :
-    def __init__(self, bread='white', portion=1, temp='medium-rare', fat_percentage='2%', *ingredients):
-        super().__init__() # call parent class constructor for access to basic values from parent class
-        self.bread = bread
-        self.portion = portion
-        self.temp = temp
-        self.fat_percentage = fat_percentage
-        for ingredient in ingredients:
-            # add each provided ingredient to list of ingredients for this burger
-            self.ingredients.append(ingredient)
-        
-    def display_info(self):
-        """Display info related to a particular burger."""
-        print(f" Bread: {self.bread}\n Portion: {self.portion}\n" 
-        + f" Type: {self.type}\n Doneness: {self.temp}\n" 
-        + f" Fat-Content: {self.fat_percentage}\n Ingredients: {self.ingredients}")
+    def fillings_to_string(self):
+        """Convert all fillings present in this sandwich to string format."""
+        fillings_string = ''
+        for filling in self.fillings:
+            fillings_string += f"{filling}, "
+        return fillings_string
+
+
+    def print_sandwich_details(self):
+        """Print details of this sandwich to console."""
+        print(f"This is a {self.type}, with {self.fillings_to_string()}on {self.bread}.")
+        print(f"Price is {self.price}.")

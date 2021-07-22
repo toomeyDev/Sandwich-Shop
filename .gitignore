@@ -1,2 +1,3 @@
 #ignore pycache folder, unlikely to be of use to end users
 /sandwich_shop/__pycache__
+/.vscode

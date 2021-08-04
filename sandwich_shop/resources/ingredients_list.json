@@ -1,0 +1,7 @@
+{
+    "bread":["white","wheat","rye","marble rye","pumpernickel"],
+    "meat":["turkey","ham","chicken","pastrami","bologna","salami","bacon","egg","prosciutto","haddock","cod","hot dog", "sausage", "meatball"],
+    "veggies":["lettuce","spinach","pickles","cucumbers","kale","broccoli","raddish","celery","carrots"],
+    "cheese":["american","provalone","swiss","pepperjack","cheddar","sharp cheddar","gouda","brie","mozzerella"],
+    "condiments":["ketchup","mustard","relish","mayonnaise","ranch dressing","olive oil","italian dressing","mayochup","blue cheese dressing"]
+}

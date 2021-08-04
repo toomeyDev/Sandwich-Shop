@@ -29,6 +29,7 @@ class Customer:
 """Represents a single employee with a specific job title."""
 class Employee:
     """Initialize employee with provided arguments, or use defaults."""
-    def __init__(self, name='default', position='base'):
+    def __init__(self, name='default', position='base', pay_rate=50.00):
         self.name = name
         self.position = position
+        self.pay_rate=pay_rate # payrate of this employee, should be subtracted from restauraunt funds at end of shift

@@ -1,4 +1,4 @@
-import sandwich
+from sandwich import Sandwich
 """
 Contains classes relevant to menu organization and storage
 (menus, submenus).
@@ -6,9 +6,9 @@ Contains classes relevant to menu organization and storage
 class Menu:
     def __init__(self, **kwargs):
         """Initialize this menu with any provided items."""
-        self.items = {}
+        self.entries = {}
         for key, value in kwargs.items():
-            self.items[key] = value
+            self.entries[key] = value
 
     def add_item(self, **kwargs):
         """
@@ -17,14 +17,14 @@ class Menu:
         type.
         """
         for key, value in kwargs.items():
-            self.items[key] = value
+            self.entries[key] = value
 
     def print_menu(self):
         """Print the contents of this menu, including any submenus."""
-        for key, value in self.items.items():
+        for key, value in self.entries.items():
             if(isinstance(value, SubMenu)):
                 value.print_menu()
-            elif(isinstance(value, sandwich.Sandwich)):
+            elif(isinstance(value, Sandwich)):
                 value.print_sandwich_details()
             else:
                 print(f"{key}: {value}")
@@ -37,10 +37,11 @@ class SubMenu(Menu):
         self.title = title.title()
 
 
-    def print_menu(self):
+    def print_submenu(self):
         """
-        Print the contents of this submenu, then print out a line
-        break sized to match submenu title.
+        Print the title of this submenu,  followed by appropriately
+        sized line-break composed of '#' characters, then print all
+        entries in the submenu.
         """
         print(self.title)
         hr = '' # empty line break
@@ -48,8 +49,8 @@ class SubMenu(Menu):
             hr += '='
         print(hr + "\n") # print properly sized line break
 
-        for key, value in self.items.items():
-            if(isinstance(value, sandwich.Sandwich)):
+        for key, value in self.entries.items():
+            if(isinstance(value, Sandwich)):
                 value.print_sandwich_details()
             else:
                 print(f"{key}: {value}")
